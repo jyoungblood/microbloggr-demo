@@ -39,4 +39,8 @@ Set `PLAYGROUND_BASE` when deploying under a subpath. `PLAYGROUND_EDITOR_PATH` c
 
 ## Test a local package change
 
-From the package checkout, run `npm pack --pack-destination /tmp`, then install that tarball here with `npm install --no-save --package-lock=false /tmp/microbloggr-0.0.1.tgz`. Run `npm ci` to restore the pinned dependency afterward.
+Keep this demo checkout inside the package repository as `playground/`, with dependencies installed in both repos. `npm run dev` automatically uses the parent package's source, so local package and theme edits appear in the same server. Running `npm run dev` from the parent package starts this same playground.
+
+A standalone demo checkout uses the installed package. `npm run dev:package` explicitly uses that version even inside the package repo. `npm run build`, `npm run check`, and `npm run preview` always use the installed package; the local development override never changes the dependency or lockfile.
+
+The dev launcher prints which package source it selected. Restart an already running server once after updating this setup.
