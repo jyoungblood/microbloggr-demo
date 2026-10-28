@@ -3,11 +3,12 @@ import { existsSync, readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 
 const root = new URL("../", import.meta.url);
-const parentManifest = new URL("../package.json", root);
+const localRoot = new URL("../microbloggr/", root);
+const localManifest = new URL("package.json", localRoot);
 const localPackage =
-  existsSync(parentManifest) &&
-  JSON.parse(readFileSync(parentManifest, "utf8")).name === "microbloggr" &&
-  existsSync(new URL("../src/index.mjs", root));
+  existsSync(localManifest) &&
+  JSON.parse(readFileSync(localManifest, "utf8")).name === "microbloggr" &&
+  existsSync(new URL("src/index.mjs", localRoot));
 
 console.log(
   localPackage
