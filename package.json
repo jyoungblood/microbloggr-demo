@@ -1,0 +1,29 @@
+{
+  "name": "microbloggr-demo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "astro build",
+    "preview": "astro preview --host 127.0.0.1",
+    "check": "astro check",
+    "seed": "node scripts/seed.mjs",
+    "seed:reset": "node scripts/seed.mjs --reset"
+  },
+  "dependencies": {
+    "astro": "7.4.0"
+  },
+  "devDependencies": {
+    "microbloggr": "git+https://github.com/jyoungblood/microbloggr.git#6f06214d2e5a98eed3304e5321a7485a1628bda0",
+    "@astrojs/check": "0.9.10",
+    "@types/sanitize-html": "^2.16.0",
+    "typescript": "^5.9.3"
+  },
+  "engines": {
+    "node": ">=22.22.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jyoungblood/microbloggr-demo.git"
+  }
+}
